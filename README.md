@@ -4,7 +4,8 @@ Builds of **MacDM**, a download manager for Ubuntu (and other Linux), macOS and 
 several connections at once, pauses and resumes, sorts downloads into categories, and picks up videos and
 downloads from Chrome, Edge, Brave and Chromium.
 
-Get the latest build from [**Releases**](../../releases/latest). These builds are not code-signed.
+Get the latest build from [**Releases**](../../releases/latest). These builds are not code-signed, and are
+150–200 MB because they include `yt-dlp` and `ffmpeg`: there is nothing else to install.
 
 ## Ubuntu / Debian
 
@@ -20,23 +21,15 @@ An AppImage is also provided (`MacDM-*-linux-x86_64.AppImage`). Make it executab
 Ubuntu 24.04 and later, AppArmor blocks the sandbox for AppImages, so start it with `--no-sandbox`
 or use the `.deb` instead.
 
-### Video sites and DASH streams
-
-Downloading from YouTube-style pages needs `yt-dlp`; joining DASH audio and video needs `ffmpeg`.
-
-```bash
-sudo apt install ffmpeg pipx && pipx install yt-dlp
-```
-
 ## macOS (Apple Silicon)
 
 Open `MacDM-*-mac-arm64.dmg` and drag MacDM to Applications. The first time, right-click it and choose
-**Open**. Tools: `brew install yt-dlp ffmpeg`.
+**Open**.
 
 ## Windows (64-bit)
 
 Run `MacDM-Setup-*-win-x64.exe`, or unzip the portable `MacDM-*-win-x64-portable.zip`. SmartScreen asks
-you to confirm: **More info → Run anyway**. Tools: `winget install yt-dlp.yt-dlp Gyan.FFmpeg`. The Windows
+you to confirm: **More info → Run anyway**. The Windows
 build has not been tested on a PC.
 
 ## Browser extension
@@ -51,6 +44,11 @@ the browsers' own repositories. Snap and Flatpak browsers keep their profiles el
 supported yet.
 
 ## What it does
+
+`yt-dlp` and `ffmpeg` are included, so downloading from video sites and joining video and audio works
+out of the box. MacDM updates its copy of `yt-dlp` once a day (and on request from the tray icon's
+**Update yt-dlp now**), because video sites change often. FFmpeg is GPL-licensed and runs as a
+separate program; its source is linked in the notices file inside the app.
 
 - **Fast downloads:** up to 8 connections per file, split dynamically as connections finish; pause and resume.
 - **New-download window:** name, category, folder, size and video quality, before anything starts.
