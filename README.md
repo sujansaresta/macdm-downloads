@@ -29,8 +29,9 @@ Open `MacDM-*-mac-arm64.dmg` and drag MacDM to Applications. The first time, rig
 ## Windows (64-bit)
 
 Run `MacDM-Setup-*-win-x64.exe`, or unzip the portable `MacDM-*-win-x64-portable.zip`. SmartScreen asks
-you to confirm: **More info → Run anyway**. The Windows
-build has not been tested on a PC.
+you to confirm: **More info → Run anyway**. Start MacDM once before using the browser extension, so it can
+register itself. If the extension says it can't reach MacDM, the reason is written to
+`%APPDATA%\MacDM\host.log`. The Windows build has not been tested on a PC by its author.
 
 ## Browser extension
 
